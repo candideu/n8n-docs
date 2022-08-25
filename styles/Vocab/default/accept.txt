@@ -9,6 +9,7 @@ Cron
 Dockerfile
 Enum
 enum
+gcloud
 GIMP
 invalid
 Lemlist

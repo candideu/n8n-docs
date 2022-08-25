@@ -1,6 +1,6 @@
 # Hosting n8n on Google Cloud
 
-This hosting guide shows you how to self-host n8n on Google Cloud (GCP). It uses n8n with Postgres as a database backend using Kubernetes to manage the necessary resources and reverse proxy.
+This hosting guide shows you how to self-host n8n on [Google Cloud (GCP)](https://cloud.google.com/){:target=_blank .external-link}. It uses n8n with Postgres as a database backend, and uses Kubernetes to manage the necessary resources and reverse proxy.
 
 ## Prerequisites
 
@@ -8,21 +8,30 @@ This hosting guide shows you how to self-host n8n on Google Cloud (GCP). It uses
 
 ## Hosting options
 
-Google Cloud offers several ways suitable for hosting n8n, including Cloud Run (optimized for running containers), Compute Engine (VMs), and Kubernetes Engine (containers running with Kubernetes).
+Google Cloud offers several ways suitable for hosting n8n, including [Cloud Run](https://cloud.google.com/run){:target=_blank .external-link} (optimized for running containers), [Compute Engine](https://cloud.google.com/compute){:target=_blank .external-link} (VMs), and [Kubernetes Engine](https://cloud.google.com/kubernetes-engine){:target=_blank .external-link} (containers running with Kubernetes).
 
-This guide uses the Google Kubernetes Engine (GKE) as the hosting option. Using Kubernetes requires some additional complexity and configuration, but is the best method for scaling n8n as demand changes.
+This guide uses the Google Kubernetes Engine (GKE) as the hosting option. Using Kubernetes adds complexity, and requires more configuration, but it's the best method for scaling n8n as demand changes.
 
 Most of the steps in this guide use the Google Cloud UI, but you can also use the [gcloud command line tool](https://cloud.google.com/sdk/gcloud/){:target="_blank" .external-link} instead to undertake all the steps.
 
 ## Create project
 
-GCP encourages you to create projects to logically organize resources and configuration. Create a new project for your n8n deployment by clicking the project dropdown menu and then the _NEW PROJECT_ button. Then select the newly created project and as you follow other steps in this guide, make sure you have the correct project selected.
+GCP encourages you to create projects to logically organize resources and configuration:
+
+1. In your Google Cloud console, select the **Select a project** dropdown.
+2. Select **NEW PROJECT**. 
+3. Enter a name for your project, and check that you are creating it under the correct organization.
+4. Select **CREATE**.
+
+Then select the newly created project. As you follow other steps in this guide, make sure you have the correct project selected.
 
 ## Enable the Kubernetes Engine API
 
-GKE isn't enabled by default, search for "Kubernetes" in the top search bar and select "Kubernetes Engine" from the results.
+GKE isn't enabled by default. To enable it:
 
-Enable the Kubernetes Engine API by clicking the **Enable** button.
+1. Search for "Kubernetes" in the top search bar.
+2. Select "Kubernetes Engine" from the results.
+3. Enable the Kubernetes Engine API by selecting **ENABLE**.
 
 ## Create a cluster
 
